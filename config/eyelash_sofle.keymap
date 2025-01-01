@@ -47,16 +47,23 @@
         tap-ms = <30>;
     };
 
+    td0_shift_cap: td0_shift_cap {
+        compatible = "zmk,behavior-tap-dance";
+        label = "TD0_SHIFT_CAP";
+        #binding-cells = <0>;
+        bindings = <&kp LEFT_SHIFT>, <&kp CAPSLOCK>;
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         layer0 {
             bindings = <
-&kp ESC           &kp N1      &kp N2        &kp N3        &kp N4  &kp N5       &mmv MOVE_UP     &kp N6     &kp N7  &kp N8         &kp N9           &kp N0      &kp BACKSPACE
-&kp TAB           &kp Q       &kp W         &kp E         &kp R   &kp T        &mmv MOVE_DOWN   &kp Y      &kp U   &kp I          &kp O            &kp P       &kp BSLH
-&kp LEFT_SHIFT    &kp A       &kp S         &kp D         &kp F   &kp G        &mmv MOVE_LEFT   &kp H      &kp J   &kp K          &kp L            &kp SEMI    &kp APOS
-&kp LEFT_CONTROL  &kp Z       &kp X         &kp C         &kp V   &kp B        &mmv MOVE_RIGHT  &kp N      &kp M   &kp COMMA      &kp DOT          &kp FSLH    &kp ESCAPE
-&kp C_MUTE        &kp INSERT  &kp LEFT_GUI  &kp LEFT_ALT  &mo 3   &kp SPACE    &mkp LCLK        &kp ENTER  &mo 0   &kp RIGHT_ALT  &kp RIGHT_SHIFT  &kp DELETE
+&kp ESC           &kp N1      &kp N2        &kp N3        &kp N4  &kp N5         &mmv MOVE_UP     &kp N6     &kp N7  &kp N8         &kp N9           &kp N0      &kp BACKSPACE
+&kp TAB           &kp Q       &kp W         &kp E         &kp R   &kp T          &mmv MOVE_DOWN   &kp Y      &kp U   &kp I          &kp O            &kp P       &kp BSLH
+&td0_shift_cap    &kp A       &kp S         &kp D         &kp F   &kp G          &mmv MOVE_LEFT   &kp H      &kp J   &kp K          &kp L            &kp SEMI    &kp APOS
+&kp LEFT_CONTROL  &kp Z       &kp X         &kp C         &kp V   &kp B          &mmv MOVE_RIGHT  &kp N      &kp M   &kp COMMA      &kp DOT          &kp FSLH    &kp ESCAPE
+&kp C_MUTE        &kp INSERT  &kp LEFT_GUI  &kp LEFT_ALT  &mo 1   &lt 3 SPACE    &mkp LCLK        &kp ENTER  &mo 2   &kp RIGHT_ALT  &kp RIGHT_SHIFT  &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -83,13 +90,13 @@
             >;
         };
 
-        layer_1 {
+        functions {
             bindings = <
-&kp ESCAPE  &kp F1        &kp F2          &kp F3        &kp F4        &kp F5          &trans  &kp F11          &kp F12        &none         &kp SLASH     &kp ASTERISK  &kp MINUS
-&trans      &kp F6        &kp F7          &kp F8        &kp F9        &kp F10         &trans  &rgb_ug RGB_EFF  &kp COMMA      &kp N7        &kp N8        &kp N9        &kp PLUS
-&trans      &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &rgb_ug RGB_TOG  &kp SEMICOLON  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PLUS
-&trans      &bt BT_CLR    &bt BT_CLR_ALL  &out OUT_USB  &out OUT_BLE  &none           &trans  &none            &kp EQUAL      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER
-&kp C_MUTE  &trans        &trans          &trans        &trans        &trans          &trans  &mkp LCLK        &mkp RCLK      &mkp MCLK     &kp N0        &kp DOT
+&kp ESCAPE  &kp F1        &kp F2          &kp F3        &kp F4        &kp F5          &trans          &kp F11          &kp F12        &none         &kp SLASH     &kp ASTERISK  &kp MINUS
+&trans      &kp F6        &kp F7          &kp F8        &kp F9        &kp F10         &trans          &rgb_ug RGB_EFF  &kp COMMA      &kp N7        &kp N8        &kp N9        &kp PLUS
+&trans      &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp C_PREVIOUS  &rgb_ug RGB_TOG  &kp SEMICOLON  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PLUS
+&trans      &bt BT_CLR    &bt BT_CLR_ALL  &out OUT_USB  &out OUT_BLE  &none           &kp C_NEXT      &none            &kp EQUAL      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER
+&kp C_MUTE  &trans        &trans          &trans        &trans        &trans          &kp C_PP        &mkp LCLK        &mkp RCLK      &mkp MCLK     &kp N0        &kp DOT
             >;
 
             display-name = "layer1";
