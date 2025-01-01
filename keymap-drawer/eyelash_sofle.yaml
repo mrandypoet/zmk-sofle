@@ -54,8 +54,8 @@ layers:
   - $$mdi:keyboard-esc$$
   - $$mdi:volume-off$$
   - Ins
-  - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-option$$
+  - LEFT WIN
   - number
   - {t: '$$mdi:keyboard-space$$', h: layer1}
   - $$mdi:mouse-left-click-outline$$
