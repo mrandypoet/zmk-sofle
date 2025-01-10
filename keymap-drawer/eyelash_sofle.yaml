@@ -56,7 +56,7 @@ layers:
   - Ins
   - $$mdi:apple-keyboard-option$$
   - LEFT WIN
-  - symbol
+  - {t: '$$mdi:keyboard-return$$', h: symbol}
   - {t: '$$mdi:keyboard-space$$', h: layer1}
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
